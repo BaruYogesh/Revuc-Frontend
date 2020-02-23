@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import CardList from './plants-display.component'
 
-import {Form } from 'react-bootstrap';
+import {Form, Jumbotron, Container } from 'react-bootstrap';
 
 export default class InputZip extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export default class InputZip extends React.Component {
         this.state = {
             zip: '',
             result: [],
-            rainfall: ''
+            rainfall: '0'
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputZIP = this.onInputZIP.bind(this);
@@ -71,8 +71,11 @@ export default class InputZip extends React.Component {
                         <option value="5">Heavy</option>
                     </Form.Control>
                 </form>
-                
-                {this.state.result.data && this.state.result.data.length ? <CardList plants={this.state.result.data} style={{marginTop: 10}}/>: ""}
+                <Jumbotron>
+                    <Container>
+                        {this.state.result.data && this.state.result.data.length ? <CardList plants={this.state.result.data} rainfall={this.state.rainfall} style={{marginTop: 10}}/>: ""}
+                    </Container>
+                </Jumbotron>
                
                 
             </div>

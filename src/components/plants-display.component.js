@@ -1,13 +1,21 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap';
 
+const rainLevels = ['arid', 'light', 'moderate', 'rainy', 'heavy']
 const CardList = props => {
-    const {plants} = props;
+    let {plants} = props;
+    let {rainfall} = props;
+    rainfall-=1
 
-    if(plants.length> 0){
+    console.log(rainfall)
+
+    if(rainfall !== -1){
+        plants = plants.filter(item => rainLevels[rainfall] === item.plant_rainfall)
+    }
+    if(plants.length > 0){
         return plants.map(item => 
             
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem'}}>
             <Card.Img variant="top" src={item.plant_image} />
             <Card.Body>
                 <Card.Title>{item.plant_name}</Card.Title>
@@ -21,7 +29,7 @@ const CardList = props => {
         
     }
     else{
-        return <h1>plants dne</h1>
+        return <h1>No plants for your query</h1>
     }
 }
 
