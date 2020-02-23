@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css"; 
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import InputZIP from "./components/input-zip.component";
 
 import logo from "./logo.svg";
