@@ -7,16 +7,19 @@ const CardList = props => {
     let {rainfall} = props;
     rainfall-=1
 
-    console.log(rainfall)
-
     if(rainfall !== -1){
         plants = plants.filter(item => rainLevels[rainfall] === item.plant_rainfall)
+    }
+    if(plants.length>3){
+        plants = plants.slice(0,3)
     }
     if(plants.length > 0){
         return plants.map(item => 
             
-            <Card style={{ width: '18rem'}}>
-            <Card.Img variant="top" src={item.plant_image} />
+            <Card style={{ width: '18rem', margin: 'auto'}}>
+            <div style={{height: "225px"}}>
+                <Card.Img variant="top" src={item.plant_image} style={{height: '100%'}} />
+            </div>
             <Card.Body>
                 <Card.Title>{item.plant_name}</Card.Title>
                 <Card.Text>

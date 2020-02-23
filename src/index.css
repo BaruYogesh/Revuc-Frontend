@@ -15,3 +15,15 @@ code {
 .completed {
   text-decoration: line-through;
 }
+
+.card-list {
+  display: flex;
+  /* align-items: center; */
+  
+}
+
+.form-control:active,
+form-control:active{
+  border: none !important;
+  outline: none !important;
+}
