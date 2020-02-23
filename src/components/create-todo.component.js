@@ -5,7 +5,7 @@ export default class CreateTodo extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.state = { 
             todo_description: '',
             todo_responsible: '',
             todo_priority: '',

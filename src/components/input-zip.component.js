@@ -18,9 +18,13 @@ export default class InputZip extends React.Component {
         const weather = 'https://api.openweathermap.org/data/2.5/weather?zip=' + this.state.zip + ',us&appid=972a36fea83506dc9a292648560b18da'
         axios.get(weather)
             .then((result) => {
-                console.log(result.data.main)
-                const temp = ((result.data.main.temp) - 273.15) * (9/5 + 32);
-                //axios.get("http://localhost:4000/")
+                //console.log(result.data.main)
+                const temp = Math.round(((result.data.main.temp) - 273.15) * 9/5 + 32);
+                console.log(temp)
+                axios.get("http://localhost:4000/plants/temp/"+temp)
+                    .then((result)=>{
+                        console.log(result);
+                    })
             })
 
     }
